@@ -8,7 +8,27 @@
 
 <body>
 	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
+	<input type="text" id="inputField" placeholder="Enter a string">
+	<p id="result"></p>
+	
+	<script>
+		function byteSize(str) {
+      // Create a Blob object from the string
+      const blob = new Blob([str], { type: 'text/plain' });
+
+      // Get the size property of the Blob to determine the size in bytes
+      return blob.size;
+    }
+
+    const inputField = document.getElementById('inputField');
+    const resultElement = document.getElementById('result');
+
+    inputField.addEventListener('input', function () {
+      const inputText = inputField.value;
+      const sizeInBytes = byteSize(inputText);
+
+      resultElement.textContent = sizeInBytes;
+    });
 </script>
 
 </body>
